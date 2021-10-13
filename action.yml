@@ -30,7 +30,10 @@ runs:
 
     - name: install dependencies
       shell: bash
-      run: pip install -r src/require.txt
+      run: |
+        pwd
+        ls -a
+        pip install -r src/require.txt
 
     - name: send datapoint to metrics db
       shell: bash
