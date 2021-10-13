@@ -2,16 +2,10 @@ name: 'Datapoint Producer'
 description: 'Add datapoint at metrics db'
 author: 'Robson Andrade<robson.andrade@contraktor.com.br>'
 inputs:
-  influxdb-token:
-    description: 'token to access influxdb instance'
-    require: true
   influxdb-bucket:
     description: 'influxdb bucket, used as metrics aggragetor'
     require: false
     default: 'deployment'
-  influxdb-url:
-    description: 'url to influxdb instance'
-    require: true
   influxdb-org:
     description: 'organizarion used by influxdb'
     require: false
@@ -36,9 +30,9 @@ runs:
     - name: send datapoint to metrics db
       shell: bash
       run: |
-        export INFLUX_TOKEN=${{ inputs.influxdb-token }}
-        export INFLUX_BUCKET=${{ inputs.influxdb-bucket }}
-        export INFLUX_URL=${{ inputs.influxdb-url }}
+        export INFLUX_TOKEN=${{ secrets.INFLUXDB_TOKEN }}
+        export INFLUX_URL=${{ secrets.INFLUXDB_URL }}
+        export INFLUX_BUCKET=${{ inputs.influxdb-buck }}
         export INFLUX_ORG=${{ inputs.influxdb-org }}
         export APP=${{ inputs.app }}
         python ${{ github.action_path }}/src/main.py
