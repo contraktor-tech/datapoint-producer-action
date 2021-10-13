@@ -4,7 +4,7 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 token = os.environ["INFLUX_TOKEN"]
-bucket = os.environ("INFLUX_BUCKET", "deployment")
+bucket = os.environ.get("INFLUX_BUCKET", "deployment")
 influxdb_url = os.environ["INFLUX_URL"]
 app_name = os.environ["APP"]
 org = os.environ.get("INFLUX_ORG", "Contraktor")
