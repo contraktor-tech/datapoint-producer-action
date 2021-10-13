@@ -31,9 +31,7 @@ runs:
     - name: install dependencies
       shell: bash
       run: |
-        pwd
-        ls -a
-        pip install -r src/require.txt
+        pip install -r ${{ github.action_path }}/src/require.txt
 
     - name: send datapoint to metrics db
       shell: bash
@@ -43,4 +41,4 @@ runs:
         export INFLUX_URL=${{ inputs.influxdb-url }}
         export INFLUX_ORG=${{ inputs.influxdb-org }}
         export APP=${{ inputs.app }}
-        python src/main.py
+        python ${{ github.action_path }}/src/main.py
