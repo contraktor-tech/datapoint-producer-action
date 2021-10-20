@@ -37,7 +37,7 @@ runs:
       shell: bash
       run: |
         export INFLUX_TOKEN=${{ inputs.influxdb-token }}
-        export INFLUX_MEANSUREMENT=${{ inputs.influxdb-measurement }}
+        export INFLUX_MEASUREMENT=${{ inputs.influxdb-measurement }}
         export INFLUX_URL=${{ inputs.influxdb-url }}
         export INFLUX_ORG=${{ inputs.influxdb-org }}
         export APP=${{ inputs.app }}
