@@ -5,8 +5,8 @@ inputs:
   influxdb-token:
     description: 'token to access influxdb instance'
     require: true
-  influxdb-bucket:
-    description: 'influxdb bucket, used as metrics aggragetor'
+  influxdb-measurement:
+    description: 'influxdb measurement, used as metrics aggragetor'
     require: false
     default: 'deployment'
   influxdb-url:
@@ -37,7 +37,7 @@ runs:
       shell: bash
       run: |
         export INFLUX_TOKEN=${{ inputs.influxdb-token }}
-        export INFLUX_BUCKET=${{ inputs.influxdb-bucket }}
+        export INFLUX_MEANSUREMENT=${{ inputs.influxdb-measurement }}
         export INFLUX_URL=${{ inputs.influxdb-url }}
         export INFLUX_ORG=${{ inputs.influxdb-org }}
         export APP=${{ inputs.app }}
